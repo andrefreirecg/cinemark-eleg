@@ -45,7 +45,12 @@ function baixa_voucher_produto($quantidade, $post_type, $order_id)
         $post_id = $post->ID;
         $pedido = carbon_get_post_meta($post_id, 'pedido');
         if ($pedido == '') {
-            update_post_meta($post_id, 'pedido', $order_id);
+            $new_title = $post->post_title . ' - ' . $order_id;
+            wp_update_post([
+                'ID' => $post_id,
+                'post_title' => $new_title
+            ]);
+            carbon_set_post_meta($post_id, 'pedido', $order_id);
         }
     }
     update_estoque_vouchers($post_type);

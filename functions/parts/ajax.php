@@ -320,6 +320,11 @@ function update_estoque_vouchers($post_type)
         $validade = carbon_get_post_meta($voucher->ID, 'validade');
 
         $partes = explode('/', $validade);
+
+        if (count($partes) != 3) {
+            continue;
+        }
+
         $validade_formatada = $partes[2] . '-' . $partes[1] . '-' . $partes[0];
 
         $validade_date = date_create($validade_formatada);

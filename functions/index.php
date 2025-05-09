@@ -8,7 +8,7 @@ if ( ! defined( 'ABSPATH' ) ) {
 	exit; // Exit if accessed directly.
 }
 
-$files = ['styles', 'cpt', 'admin_page', 'fields', 'storage', 'ajax', 'sync','mail/vouchers', 'woocommerce'];
+$files = ['styles', 'cpt', 'admin_page', 'fields', 'storage', 'ajax', 'sync','mail/mail', 'woocommerce'];
 
 foreach ( $files as $file ) {
     require_once 'parts/'. $file . '.php';

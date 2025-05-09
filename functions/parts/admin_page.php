@@ -1,5 +1,7 @@
 <?php
+
 // Hook para adicionar menu no admin
+
 add_action('admin_menu', 'meu_plugin_adicionar_menu');
 
 function meu_plugin_adicionar_menu()
@@ -75,7 +77,7 @@ function quantidade_ingresso_callback(){
                     processData: false,
                     contentType: false,
                     success: function(data) {
-                        console.log(data)
+                        alert(data.data.mensagem)
                     }
                 });
             });
@@ -89,7 +91,7 @@ function quantidade_ingresso_callback(){
                     processData: false,
                     contentType: false,
                     success: function(data) {
-                        console.log(data)
+                        alert(data.data.mensagem)
                     }
                 });
             });

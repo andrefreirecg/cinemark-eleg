@@ -1,8 +1,11 @@
 <?php
 
+
 function mail_vouchers_combo_e_ingresso($nome_usuario, $vouchers)
 {
-    return `<!DOCTYPE html>
+	$plugin_path_assets_image = site_url() . '/wp-content/plugins/vouchers-eleg/functions/parts/mail/';
+
+    return '<!DOCTYPE html>
 
 <html lang="en" xmlns:o="urn:schemas-microsoft-com:office:office" xmlns:v="urn:schemas-microsoft-com:vml">
 <head>
@@ -121,7 +124,7 @@ function mail_vouchers_combo_e_ingresso($nome_usuario, $vouchers)
 <tr>
 <td class="pad" style="width:100%;padding-right:0px;padding-left:0px;">
 <div align="center" class="alignment">
-<div style="max-width: 210px;"><img alt="ebrasil logo" height="auto" src="images/1.png" style="display: block; height: auto; border: 0; width: 100%;" title="ebrasil logo" width="210"/></div>
+<div style="max-width: 210px;"><img alt="ebrasil logo" height="auto" src="'.$plugin_path_assets_image.'images/1.png" style="display: block; height: auto; border: 0; width: 100%;" title="ebrasil logo" width="210"/></div>
 </div>
 </td>
 </tr>
@@ -147,7 +150,7 @@ function mail_vouchers_combo_e_ingresso($nome_usuario, $vouchers)
 <tr>
 <td class="pad" style="width:100%;">
 <div align="center" class="alignment">
-<div style="max-width: 700px;"><img alt="cinema cinemark ebrasil" height="auto" src="images/people-love-watching-movie-movie-theater.png" style="display: block; height: auto; border: 0; width: 100%;" title="cinema cinemark ebrasil" width="700"/></div>
+<div style="max-width: 700px;"><img alt="cinema cinemark ebrasil" height="auto" src="'.$plugin_path_assets_image.'images/people-love-watching-movie-movie-theater.png" style="display: block; height: auto; border: 0; width: 100%;" title="cinema cinemark ebrasil" width="700"/></div>
 </div>
 </td>
 </tr>
@@ -173,7 +176,7 @@ function mail_vouchers_combo_e_ingresso($nome_usuario, $vouchers)
 <tr>
 <td class="pad" style="padding-bottom:25px;padding-left:25px;padding-right:10px;padding-top:10px;">
 <div style="color:#555555;font-family:Montserrat, Trebuchet MS, Lucida Grande, Lucida Sans Unicode, Lucida Sans, Tahoma, sans-serif;font-size:28px;line-height:1.2;text-align:left;mso-line-height-alt:34px;">
-<p style="margin: 0; word-break: break-word;"><span style="word-break: break-word;">Olá <strong>{$nome_usuario}</strong></span></p>
+<p style="margin: 0; word-break: break-word;"><span style="word-break: break-word;">Olá <strong>'.$nome_usuario.'</strong> </span></p>
 </div>
 </td>
 </tr>
@@ -229,7 +232,7 @@ function mail_vouchers_combo_e_ingresso($nome_usuario, $vouchers)
 <div class="spacer_block block-1" style="height:55px;line-height:55px;font-size:1px;"> </div>
 <table border="0" cellpadding="0" cellspacing="0" class="paragraph_block block-2" role="presentation" style="mso-table-lspace: 0pt; mso-table-rspace: 0pt; word-break: break-word;" width="100%">
 <tr>
-`.loop_ingressos($vouchers).`
+'.loop_ingressos($vouchers).'
 </tr>
 </table>
 <table border="0" cellpadding="10" cellspacing="0" class="divider_block block-3" role="presentation" style="mso-table-lspace: 0pt; mso-table-rspace: 0pt;" width="100%">
@@ -265,7 +268,7 @@ function mail_vouchers_combo_e_ingresso($nome_usuario, $vouchers)
 <tr>
 <td class="pad">
 <div align="center" class="alignment">
-<div class="fullWidth" style="max-width: 525px;"><img alt="" height="auto" src="images/Sem_titulo-5.png" style="display: block; height: auto; border: 0; width: 100%; border-radius: 0px 0px 2px 0px;" title="" width="525"/></div>
+<div class="fullWidth" style="max-width: 525px;"><img alt="" height="auto" src="'.$plugin_path_assets_image.'images/Sem_titulo-5.png" style="display: block; height: auto; border: 0; width: 100%; border-radius: 0px 0px 2px 0px;" title="" width="525"/></div>
 </div>
 </td>
 </tr>
@@ -400,7 +403,7 @@ function mail_vouchers_combo_e_ingresso($nome_usuario, $vouchers)
 <tr>
 <td class="pad" style="width:100%;padding-right:0px;padding-left:0px;">
 <div align="center" class="alignment">
-<div style="max-width: 245px;"><img alt="ebrasil logo" height="auto" src="images/1.png" style="display: block; height: auto; border: 0; width: 100%;" title="ebrasil logo" width="245"/></div>
+<div style="max-width: 245px;"><img alt="ebrasil logo" height="auto" src="'.$plugin_path_assets_image.'images/1.png" style="display: block; height: auto; border: 0; width: 100%;" title="ebrasil logo" width="245"/></div>
 </div>
 </td>
 </tr>
@@ -412,8 +415,8 @@ function mail_vouchers_combo_e_ingresso($nome_usuario, $vouchers)
 <div align="center" class="alignment">
 <table border="0" cellpadding="0" cellspacing="0" class="social-table" role="presentation" style="mso-table-lspace: 0pt; mso-table-rspace: 0pt; display: inline-block;" width="84px">
 <tr>
-<td style="padding:0 5px 0 5px;"><a href="https://www.instagram.com/elegibilidadebrasil/" target="_blank"><img alt="Instagram" height="auto" src="images/instagram2x.png" style="display: block; height: auto; border: 0;" title="Instagram" width="32"/></a></td>
-<td style="padding:0 5px 0 5px;"><a href="www.linkedin.com/in/elegibilidade-brasil-75701a190" target="_blank"><img alt="LinkedIn" height="auto" src="images/linkedin2x.png" style="display: block; height: auto; border: 0;" title="LinkedIn" width="32"/></a></td>
+<td style="padding:0 5px 0 5px;"><a href="https://www.instagram.com/elegibilidadebrasil/" target="_blank"><img alt="Instagram" height="auto" src="'.$plugin_path_assets_image.'images/instagram2x.png" style="display: block; height: auto; border: 0;" title="Instagram" width="32"/></a></td>
+<td style="padding:0 5px 0 5px;"><a href="www.linkedin.com/in/elegibilidade-brasil-75701a190" target="_blank"><img alt="LinkedIn" height="auto" src="'.$plugin_path_assets_image.'images/linkedin2x.png" style="display: block; height: auto; border: 0;" title="LinkedIn" width="32"/></a></td>
 </tr>
 </table>
 </div>
@@ -461,7 +464,7 @@ function mail_vouchers_combo_e_ingresso($nome_usuario, $vouchers)
 <td class="column column-1" style="mso-table-lspace: 0pt; mso-table-rspace: 0pt; font-weight: 400; text-align: left; padding-bottom: 5px; padding-top: 5px; vertical-align: top;" width="100%">
 <table border="0" cellpadding="0" cellspacing="0" class="icons_block block-1" role="presentation" style="mso-table-lspace: 0pt; mso-table-rspace: 0pt; text-align: center; line-height: 0;" width="100%">
 <tr>
-<td class="pad" style="vertical-align: middle; color: #1e0e4b; font-family: 'Inter', sans-serif; font-size: 15px; padding-bottom: 5px; padding-top: 5px; text-align: center;"><!--[if vml]><table align="center" cellpadding="0" cellspacing="0" role="presentation" style="display:inline-block;padding-left:0px;padding-right:0px;mso-table-lspace: 0pt;mso-table-rspace: 0pt;"><![endif]-->
+<td class="pad" style="vertical-align: middle; color: #1e0e4b; font-family: "Inter", sans-serif; font-size: 15px; padding-bottom: 5px; padding-top: 5px; text-align: center;"><!--[if vml]><table align="center" cellpadding="0" cellspacing="0" role="presentation" style="display:inline-block;padding-left:0px;padding-right:0px;mso-table-lspace: 0pt;mso-table-rspace: 0pt;"><![endif]-->
 <!--[if !vml]><!-->
 <table cellpadding="0" cellspacing="0" class="icons-inner" role="presentation" style="mso-table-lspace: 0pt; mso-table-rspace: 0pt; display: inline-block; padding-left: 0px; padding-right: 0px;"><!--<![endif]-->
 
@@ -482,7 +485,7 @@ function mail_vouchers_combo_e_ingresso($nome_usuario, $vouchers)
 </tbody>
 </table>
 </body>
-</html>`;
+</html>';
 }
 
 function loop_ingressos($todos_vouchers) {
@@ -495,7 +498,8 @@ function loop_ingressos($todos_vouchers) {
                 $validade = carbon_get_post_meta($voucher_id, 'validade');
 
                 $html_content .= '
-                    <td class="pad" style="padding-bottom:25px;padding-left:35px;padding-right:10px;padding-top:10px;">
+                    <tr>
+					<td class="pad" style="padding-bottom:25px;padding-left:35px;padding-right:10px;padding-top:10px;">
                         <div style="color:#555555;font-family:Montserrat, Trebuchet MS, Lucida Grande, Lucida Sans Unicode, Lucida Sans, Tahoma, sans-serif;font-size:22px;font-weight:400;line-height:1.2;text-align:left;mso-line-height-alt:26px;">
                             <p style="margin: 0;">
                                 Código do Ingresso: <strong>' . esc_html($ingresso) . '</strong>
@@ -505,6 +509,7 @@ function loop_ingressos($todos_vouchers) {
                             </p>
                         </div>
                     </td>
+					</tr>
                 ';
             } elseif ($post_type === 'vouchers_combo') {
                 $pipoca = carbon_get_post_meta($voucher_id, 'pipoca');
@@ -512,6 +517,7 @@ function loop_ingressos($todos_vouchers) {
                 $validade = carbon_get_post_meta($voucher_id, 'validade');
 
                 $html_content .= '
+				<tr>
                     <td class="pad" style="padding-bottom:25px;padding-left:35px;padding-right:10px;padding-top:10px;">
                         <div style="color:#555555;font-family:Montserrat, Trebuchet MS, Lucida Grande, Lucida Sans Unicode, Lucida Sans, Tahoma, sans-serif;font-size:22px;font-weight:400;line-height:1.2;text-align:left;mso-line-height-alt:26px;">
                             <p style="margin: 0;">
@@ -525,22 +531,11 @@ function loop_ingressos($todos_vouchers) {
                             </p>
                         </div>
                     </td>
+				</tr>
                 ';
             }
         }
     }
 
     return $html_content;
-}
-
-
-function enviar_email_vouchers($order, $todos_vouchers) {
-
-    $to = $order->get_billing_email();
-    $nome = $order->get_billing_first_name();
-    $subject = "Seus Vouchers do Pedido #" . $order->get_order_number();
-    $headers = ['Content-Type: text/html; charset=UTF-8'];
-
-    $html_content = mail_vouchers_combo_e_ingresso($nome, $todos_vouchers);
-    wp_mail($to, $subject, $html_content, $headers);
 }
