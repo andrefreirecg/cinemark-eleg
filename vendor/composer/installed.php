@@ -1,9 +1,9 @@
 <?php return array(
     'root' => array(
         'name' => '__root__',
-        'pretty_version' => 'dev-master',
-        'version' => 'dev-master',
-        'reference' => '986f04637f8210e18e2895d01888040e384c662a',
+        'pretty_version' => 'dev-main',
+        'version' => 'dev-main',
+        'reference' => '40df56ad978bc50e40c03b5f89b810d06113b7ed',
         'type' => 'library',
         'install_path' => __DIR__ . '/../../',
         'aliases' => array(),
@@ -11,9 +11,9 @@
     ),
     'versions' => array(
         '__root__' => array(
-            'pretty_version' => 'dev-master',
-            'version' => 'dev-master',
-            'reference' => '986f04637f8210e18e2895d01888040e384c662a',
+            'pretty_version' => 'dev-main',
+            'version' => 'dev-main',
+            'reference' => '40df56ad978bc50e40c03b5f89b810d06113b7ed',
             'type' => 'library',
             'install_path' => __DIR__ . '/../../',
             'aliases' => array(),
@@ -106,6 +106,15 @@
             'reference' => '764e0b3939f5ca87cb904f570ef9be2d78a07865',
             'type' => 'library',
             'install_path' => __DIR__ . '/../psr/simple-cache',
+            'aliases' => array(),
+            'dev_requirement' => false,
+        ),
+        'yahnis-elsts/plugin-update-checker' => array(
+            'pretty_version' => 'v5.5',
+            'version' => '5.5.0.0',
+            'reference' => '845d65da93bcff31649ede00d9d73b1beadbb7f0',
+            'type' => 'library',
+            'install_path' => __DIR__ . '/../yahnis-elsts/plugin-update-checker',
             'aliases' => array(),
             'dev_requirement' => false,
         ),

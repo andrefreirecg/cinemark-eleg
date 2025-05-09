@@ -1,6 +1,8 @@
 <?php
 
 use PhpOffice\PhpSpreadsheet\IOFactory;
+use PhpOffice\PhpSpreadsheet\Shared\Date;
+
 
 function importar_planilha_cinemark()
 {
@@ -76,7 +78,7 @@ function parse_planilha($caminho_final)
     $cabecalhos = [];
     $linha_index = 0;
 
-    $cabecalhos_obrigatorios = ['COD_PIPOCA', 'COD_REFRIGERANTE'];
+    $cabecalhos_obrigatorios = ['COD_PIPOCA', 'COD_REFRIGERANTE', 'VALIDADE'];
 
     foreach ($sheet->getRowIterator() as $linha) {
         $cellIterator = $linha->getCellIterator();
@@ -169,7 +171,9 @@ function criar_vouchers_ingressos($dados_agrupados)
     $ingresso_ja_cadastrados = [];
     if ($dados_agrupados['COD_INGRESSO']) {
         foreach ($dados_agrupados['COD_INGRESSO'] as $index => $codigo) {
-            $post_id = criar_post_voucher_ingresso($codigo, $index + 1);
+            $dateTime = Date::excelToDateTimeObject($dados_agrupados['VALIDADE'][$index]);
+            $validade = $dateTime->format('d/m/Y');
+            $post_id = criar_post_voucher_ingresso($codigo, $index + 1, $validade);
             if ($post_id) {
                 $posts_criados[] = $post_id;
             } else {
@@ -186,7 +190,7 @@ function criar_vouchers_ingressos($dados_agrupados)
     ];
 }
 
-function criar_post_voucher_ingresso($codigo, $index)
+function criar_post_voucher_ingresso($codigo, $index, $validade)
 {
     $post_exist_args = [
         'post_type' => 'vouchers_ingresso',
@@ -211,6 +215,7 @@ function criar_post_voucher_ingresso($codigo, $index)
     ];
     $post_id = wp_insert_post($post);
     carbon_set_post_meta($post_id, 'ingresso', $codigo);
+    carbon_set_post_meta($post_id, 'validade', $validade);
     return $post_id;
 }
 
@@ -221,8 +226,9 @@ function criar_combos($dados_agrupados)
     if ($dados_agrupados['COD_PIPOCA']) {
         foreach ($dados_agrupados['COD_PIPOCA'] as $index => $codigo) {
             $refrigerante = $dados_agrupados['COD_REFRIGERANTE'][$index];
-
-            $post_id = criar_post_combo($codigo, $refrigerante, $index + 1);
+            $dateTime = Date::excelToDateTimeObject($dados_agrupados['VALIDADE'][$index]);
+            $validade = $dateTime->format('d/m/Y');
+            $post_id = criar_post_combo($codigo, $refrigerante, $index + 1, $validade);
             if ($post_id) {
                 $posts_criados[] = $post_id;
             } else {
@@ -238,7 +244,7 @@ function criar_combos($dados_agrupados)
     ];
 }
 
-function criar_post_combo($pipoca, $refrigerante, $index)
+function criar_post_combo($pipoca, $refrigerante, $index, $validade)
 {
 
     $post_exist_args_pipoca = [
@@ -279,6 +285,7 @@ function criar_post_combo($pipoca, $refrigerante, $index)
     $post_id = wp_insert_post($post);
     carbon_set_post_meta($post_id, 'pipoca', $pipoca);
     carbon_set_post_meta($post_id, 'refrigerante', $refrigerante);
+    carbon_set_post_meta($post_id, 'validade', $validade);
     return $post_id;
 }
 

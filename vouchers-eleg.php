@@ -9,7 +9,7 @@
  * License URI:     https://www.gnu.org/licenses/gpl-2.0.html
  * Text Domain:     ms-vouchers
  * Domain Path:     /languages
- * Version:         1.0.0
+ * Version:         1.0.1
  *
  * @package         WooAsaas
  */
@@ -20,3 +20,15 @@ if ( ! defined( 'ABSPATH' ) ) {
 
 require_once 'vendor/autoload.php';
 require_once 'functions/index.php';
+
+
+use YahnisElsts\PluginUpdateChecker\v5\PucFactory;
+
+$pluginUpdateChecker = PucFactory::buildUpdateChecker(
+    'https://github.com/andrefreirecg/cinemark-eleg',
+    __FILE__,
+    'ms-vouchers'
+);
+
+// Opcional: Verifique a versão do plugin diretamente do arquivo `readme` ou de outro arquivo
+$pluginUpdateChecker->setBranch('plugin'); // Defina o branch que você deseja monitorar

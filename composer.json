@@ -1,6 +1,7 @@
 {
     "require": {
         "htmlburger/carbon-fields": "^3.6",
-        "phpoffice/phpspreadsheet": "^4.1"
+        "phpoffice/phpspreadsheet": "^4.1",
+        "yahnis-elsts/plugin-update-checker": "^5.5"
     }
 }
